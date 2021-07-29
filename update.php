@@ -1,4 +1,22 @@
+<?php
+include "connection.php";
+error_reporting(0);
 
+if(count($_POST)!=0)
+{
+    extract($_POST);
+    extract($_GET);
+    $query="UPDATE userinfo SET user='$user',email='$email', mobile='$mobile', comment='$comment' WHERE id='$id'";
+    $result=mysqli_query($con, $query);
+    if($result==true)
+    {
+        //echo"record updated";
+    }
+    else{
+       // echo"failed";
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,64 +58,15 @@
           </form>
         </div>
       </nav>
-
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="images/1.jpg" alt="First slide"
-            width="1000" height="500">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="images/2.jpg" alt="Second slide"
-            width="1000" height="500">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="images/3.jpg" alt="Third slide"
-            width="1000" height="500">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-      <section class="my-4">
-      <div>
-              <h2 class="text-center">About us</h2>
-          </div>
-          <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-6 col-md-6 c0l-12">
-                  <img src="images/4.svg" class="img-fluid aboutimg">
-              </div>
-              <div class="col-lg-6 col-md-6 c0l-12">
-                  <h2  class="display-5">Importance of Digital Payment Service for the Education Sector</h2>
-                  <p class="py-5">Most of the educational institutes are still accustomed to the error-prone manual process due to either lack of viable options or their hesitance towards culminating them. These manual processes are time consuming and necessitates efforts from the administration, teachers, parents and students and may expose the school to a higher risk of fallacy and corruption.</p>
-             <a href="about.php" class="btn btn-success">check more</a>
-              
-        </div>
-          </div>
-        </div>
-        
       </section>
       <section class="my-5">
       <div>
-          <h2 class="text-center">Contact us</h2>
+          <h2 class="text-center">Update</h2>
       </div>
      <div class="w-50 m-auto">
-       <form action="display.php" method="POST">
+       <form action="update.php" method="POST">
          <div class="form-group">
-           <label>Name</label>
+           <label>User Name</label>
            <input type="text" name="user" autocomplete="off" class="form-control">
          </div>
          <div class="form-group">
@@ -113,6 +82,7 @@
           <textarea class="form-control" name="comment"></textarea>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
+        <a href="display.php"><input type="button" class="btn btn-success" value="View"></a>
        </form>
      </div> 
       </section>
