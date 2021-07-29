@@ -10,10 +10,10 @@ if(count($_POST)!=0)
     $result =mysqli_query($con , $query);
     if($result==true)
     {
-        echo "Record inserted";
+      //  echo "Record inserted";
     }
     else{
-        echo "failed";
+       // echo "failed";
     }
 }
 ?>
@@ -65,7 +65,7 @@ if(count($_POST)!=0)
   
 
 <table class="table">
-  <thead class="thead-dark">
+  <thead class="thead-light">
     <tr>
       <th scope="col">id</th>
       <th scope="col">Name</th>
